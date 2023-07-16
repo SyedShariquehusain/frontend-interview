@@ -1,6 +1,8 @@
 import { createTheme } from "@mui/material";
 
-export const theme = createTheme({
+import { adaptV4Theme } from '@mui/material/styles';
+
+export const theme = createTheme(adaptV4Theme({
   breakpoints: {
     values: {
       xs: 0,
@@ -382,4 +384,4 @@ export const theme = createTheme({
       color: "#000",
     },
   },
-});
+}));

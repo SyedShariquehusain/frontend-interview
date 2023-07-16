@@ -9,7 +9,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { createEmotionCache } from "../utils/create-emotion-cache";
 import "../theme/styles.scss";
 import "react-toastify/dist/ReactToastify.css";
@@ -59,13 +59,15 @@ const App = (props) => {
 
 
       
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <ToastContainer position="top-right" autoClose={700} />
-            
-              {getLayout(<Component {...pageProps} />)}
-            
-          </ThemeProvider>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <ToastContainer position="top-right" autoClose={700} />
+              
+                {getLayout(<Component {...pageProps} />)}
+              
+            </ThemeProvider>
+          </StyledEngineProvider>
        
       
     </CacheProvider>
